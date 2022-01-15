@@ -13,7 +13,7 @@
 " contents of g:checkbox_states with an array of characters, which the plugin
 " will cycle through. The default is:
 "
-"     let g:checkbox_states = [' ', 'x']
+"     let g:checkbox_states = ['[ ]', '[x]']
 "
 " When there's no checkbox on the current line, "<leader>tt" will insert one
 " at the pattern defined in g:insert_checkbox. The new checkbox's state will
@@ -39,13 +39,11 @@ if exists('g:loaded_checkbox')
 endif
 
 if !exists('g:checkbox_states')
-  let g:checkbox_states = [' ', 'x']
+  let g:checkbox_states = ['[ ]', '[x]']
 endif
 
 
 if !exists('g:insert_checkbox')
-  "let g:insert_checkbox = '^'
-  "let g:insert_checkbox = '$'
   let g:insert_checkbox = '\<'
 endif
 
@@ -81,7 +79,5 @@ fu! checkbox#ToggleCB()
 endf
 
 command! ToggleCB call checkbox#ToggleCB()
-
-map <silent> <leader>tt :call checkbox#ToggleCB()<cr>
 
 let g:loaded_checkbox = 1
